@@ -1,0 +1,5 @@
+1.The HashSet would go through the Dictionary in a faster amount of time than the TreeSet because the isWord() method in the HashSet contains a hashCode() method that will enable this set to search for the elements
+easily through the use of bucket searching. Also, the HashSet contains a HashMap that will get the HashSet to retrieve the words in the dictionary very quickly. The TreeSet will get all the words in the dictionary
+more slowly than the HashSet as the logarithmic notation of the input size, ((log2n) - 2 squared) will work in conjunction with the algorithm's runtime which is quick but not as fast as the HashSet, e.g 1278 ms.
+ The HashSet would complete the method to get all the words in the dictionary in a quick amount of time, e.g 625 ms because the HashSet contains() method with the O(1) notation will not require the input's size
+ as this data structure will have constant time where the HashSet has faster retrieval of words than the TreesEt.

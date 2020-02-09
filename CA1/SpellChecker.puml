@@ -1,0 +1,151 @@
+@startuml
+skinparam classAttributeIconSize 0
+Class TextEditorFrame{
+- static final int TEXT_AREA_ROWS = 10;
+- static final int TEXT_AREA_COLUMNS = 50;
+- JTextArea textArea;
+- JButton button1;
+- JButton button2;
+- Dictionary dictionary;
+
++ TextEditorFrame(Dictionary dictionary)
+
+
+
+}
+
+Class TextEditorMain{
+
+}
+
+Class MyWindowListener{
+
+}
+
+
+Class ButtonListener{
+
+}
+
+Class JFrame{
+
+}
+
+Class Node
+{
+- E key
+- int balance
+- int height
+- Node left
+- Node right
+- Node parent
+
+Node(E key, Node parent)
+
+}
+
+Class AVLTree{
+- Node root
+
++ int getHeight()
++ void add(E word)
++ boolean contains(E word)
+- boolean containsSub(Node node, E word)
++ boolean containsIterative(E word)
++ boolean insert(E key)
++ void rebalance(Node n)
+- Node rotateLeft(Node a)
+- Node rotateRight(Node a)
+- Node rotateLeftThenRight(Node n)
+- Node rotateRightThenLeft(Node n)
+- int height(Node n)
+- void setBalance(Node... nodes)
++ void printBalance()
+- void printBalance(Node n)
+- void reheight(Node node)
+ }
+
+ Class DictionaryArrayList{
+- List<String> dictionary
+- String[] arrayDictionary
+
++ DictionaryLinkedList(String filename)
++ void load(String fileName)
++ boolean isWord(String s)
++ boolean addWord(String word)
++ int size()
+
+
+
+ }
+
+ Class DictionaryAVLTree{
+- AVLTree<String> dictionary
+
++ DictionaryAVLTree(String filename)
++ void load(String fileName)
++ boolean isWord(String s)
++ boolean addWord(String word)
++ int size()
+ }
+
+ Class DictionaryLinkedList{
+- LinkedList<String> dictionary
+
++ DictionaryLinkedList(String filename)
++ void load(String fileName)
++ boolean isWord(String s)
++ boolean addWord(String word)
++ int size()
+
+
+ }
+
+ Class DictionaryTreeSet{
+
+- Set<String> dictionary
+
++ DictionaryTreeSet(String filename)
++ void load(String fileName)
++ boolean isWord(String s)
++ boolean addWord(String word)
++ int size()
+
+ }
+
+ Class SpellChecker{
+ - Dictionary dictionary
+
+ + SpellChecker(Dictionary dictionary
+ + List doSpellCheck(String text))
+
+  }
+
+  interface Dictionary
+  interface Comparable
+  interface WindowListener
+  interface ActionListener
+
+  AVLTree +-- Node
+
+  Dictionary <.. DictionaryTreeSet
+  Dictionary <.. DictionaryLinkedList
+  Dictionary <.. DictionaryArrayList
+  Dictionary <.. DictionaryAVLTree
+
+  WindowListener <.. MyWindowListener
+  ActionListener <.. ButtonListener
+
+  TextEditorFrame +-- MyWindowListener
+  TextEditorFrame +-- ButtonListener
+
+  SpellChecker --> Dictionary : contains
+  DictionaryAVLTree --> AVLTree : uses
+
+  TextEditorMain --> Dictionary : uses
+  TextEditorFrame --> TextEditorMain : shows
+
+  JFrame <|-- TextEditorFrame
+  Comparable <|-- AVLTree
+
+@enduml
